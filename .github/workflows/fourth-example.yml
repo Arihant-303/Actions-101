@@ -1,4 +1,4 @@
-name: My second workflow
+name: My fourth workflow
 on: [push]
 jobs:
   build_job1:
@@ -14,6 +14,7 @@ jobs:
         run: sleep 10
 
   test_job2:
+    needs: build_job1
     runs-on: ubuntu-latest
     steps:
       - name: Sleep for 5 seconds
@@ -23,6 +24,7 @@ jobs:
         run: grep -i "dragon" dragon.txt
 
   deploy_job3:
+    needs: test_job2
     runs-on: ubuntu-latest
     steps:
       - name: Read File

@@ -7,11 +7,11 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v6
 
-            - name: Welcome Message
-              run: echo "My first Github Actions workflow!"
+            - name: Welcome, List and read files
+              run: |
+                echo "My first Github Actions workflow!"
+                ls -ltra
+                cat README.md
 
-            - name: List files
-              run: ls -ltra
-
-            - name: Read File
-              run: cat README.md
+            - name: Generate ASCII Artwork
+              run: cowsay -f dragon "Run for the cover, I am a dragon!" >> dragon.txt

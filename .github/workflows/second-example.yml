@@ -7,17 +7,8 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v6
 
-            - name: Install Cowsay
-              run: sudo apt-get install cowsay -y
-
-            - name: Generate ASCII Artwork
-              run: cowsay -f elephant "Run for the cover, I am a dragon!" >> dragon.txt
-
-            - name: Test file exists
-              run: grep -i "dragon" dragon.txt
-
-            - name: Display ASCII Artwork
-              run: cat dragon.txt
-
             - name: List Files
               run: ls -ltra
+
+            - name: Executing Shell Command
+              run: ./ascii-script.sh
